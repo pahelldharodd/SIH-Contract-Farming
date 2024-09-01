@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Creation</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+<div class="sidebar">
+    <h1>BRANDING</h1>
+    <div class="profile">
+        <img src="https://via.placeholder.com/80" alt="Profile Picture">
+        <p>John Doe</p>
+        <a href="#">View profile</a>
+    </div>
+    <ul>
+        <li class="active"><img src="https://via.placeholder.com/20" alt="Dashboard Icon"> Dashboard</li>
+        <li><img src="https://via.placeholder.com/20" alt="Contracts Icon"> Contracts</li>
+        <li><img src="https://via.placeholder.com/20" alt="Payments Icon"> Payments</li>
+        <li><img src="https://via.placeholder.com/20" alt="Marketplace Icon"> Marketplace</li>
+        <li><img src="https://via.placeholder.com/20" alt="Chat Icon"> Chat</li>
+        <li><img src="https://via.placeholder.com/20" alt="Settings Icon"> Settings</li>
+        <li><img src="https://via.placeholder.com/20" alt="Logout Icon"> Logout</li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <div class="top-bar">
+        <input type="search" placeholder="Search...">
+        <img src="https://via.placeholder.com/30" alt="Notifications">
+        <img src="https://via.placeholder.com/30" alt="Language Selector">
+    </div>
+    
+    <div class="contract-creation">
+        <h2>Contract Creation</h2>
+        <div class="template-library">
+            <h3>Contract Library</h3>
+            <p>Choose one of our templates or create a contract from scratch</p>
+            <div class="templates">
+                <div class="template-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Custom Contract">
+                    <a href="create_cont.html" class="button">Create Custom Contract</a>
+                </div>
+                <div class="template-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Template 1">
+                    <button onclick="openTemplate('MARKET SPECIALIZATION TEMPELATE.pdf')"class="button">Preview</button>
+                    <button onclick="downloadTemplate('MARKET SPECIALIZATION TEMPELATE.pdf')"class="button">Download </button>
+                    <p>Template 1</p>
+                </div>
+                <div class="template-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Template 2">
+                    <button onclick="openTemplate('template2.pdf')" class="button">Preview </button>
+                    <button onclick="downloadTemplate('template2.pdf')" class="button">Download</button>
+                    <p>Template 2</p>
+                </div>
+                <div class="template-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Template 3">
+                    <button onclick="openTemplate('template2.pdf')" class="button">Preview </button>
+                    <button onclick="downloadTemplate('template2.pdf')" class="button">Download</button>
+                    <p>Template 3</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="drafts">
+            <h3>Drafts</h3>
+            <p>Continue editing an older contract you created</p>
+            <div class="draft-items">
+                <div class="draft-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Draft Contract">
+                    <button onclick="openTemplate('template2.pdf')" class="button">Preview </button>
+                    <p>Custom Contract</p>
+                </div>
+                <div class="draft-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Draft Contract">
+                    <button onclick="openTemplate('template2.pdf')" class="button">Preview </button>
+                    <p>Custom Contract</p>
+                </div>
+                <div class="draft-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Draft Contract">
+                    <button onclick="openTemplate('template2.pdf')" class="button">Preview </button>
+                    <p>Custom Contract</p>
+                </div>
+                <div class="draft-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Draft Contract">
+                    <button onclick="openTemplate('template2.pdf')" class="button">Preview </button>
+                    <p>Custom Contract</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="scripts.js"></script>>
+
+</body>
+</html>
