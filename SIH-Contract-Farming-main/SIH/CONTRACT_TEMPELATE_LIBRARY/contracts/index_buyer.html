@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Dashboard - Buyer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f4f5f7;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #f5f7f9;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        .profile p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .profile a {
+            color: #555;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        nav ul {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        nav ul li {
+            margin-bottom: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li.active a {
+            color: #1ea4ce;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .topbar input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+        }
+
+        .topbar img {
+            width: 30px;
+            cursor: pointer;
+        }
+
+        .contracts-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contracts-section h1 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .overview {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .overview-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 23%;
+        }
+
+        .overview-item p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .overview-item h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .overview-item.create-contract {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px dashed #ccc;
+        }
+
+        .overview-item.create-contract:hover {
+            background-color: #eaf5ff;
+            border-color: #1ea4ce;
+        }
+
+        .overview-item.create-contract h2 {
+            font-size: 1rem;
+            color: #1ea4ce;
+        }
+
+        .overview-item.create-contract i {
+            font-size: 2rem;
+            color: #1ea4ce;
+            margin-right: 10px;
+        }
+
+        .contract-status {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .status-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 30%;
+        }
+
+        .status-item p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .status-item h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .status-item .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .status-ongoing .status-dot {
+            background-color: #ffd700;
+        }
+
+        .status-require-action .status-dot {
+            background-color: #ff6347;
+        }
+
+        .status-completed .status-dot {
+            background-color: #32cd32;
+        }
+
+        .pending-contracts {
+            margin-top: 30px;
+        }
+
+        .pending-contracts h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .pending-contracts .contract {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .contract p {
+            color: #555;
+        }
+
+        .contract a {
+            color: #1ea4ce;
+            text-decoration: none;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .tab.active {
+            border-bottom: 3px solid #1ea4ce;
+            color: #1ea4ce;
+        }
+
+        .contracts-table {
+            width: 100%;
+            margin-top: 20px;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        .contracts-table th, .contracts-table td {
+            text-align: left;
+            padding: 12px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contracts-table th {
+            background-color: #f5f7f9;
+            font-weight: 600;
+        }
+
+        .contracts-table a {
+            color: #1ea4ce;
+            text-decoration: none;
+        }
+
+        .contracts-table .btn {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #555;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .contracts-table .btn:hover {
+            background-color: #1ea4ce;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>BRANDING</h2>
+        <div class="profile">
+            <img src="/CONTRACT_TEMPELATE_LIBRARY/image.png" alt="Profile Picture">
+            <p>John Doe</p>
+            <a href="#">View profile</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li class="active"><a href="#">Contracts</a></li>
+                <li><a href="#">Payments</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Chat</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="topbar">
+            <input type="text" placeholder="Search...">
+            <img src="flag.png" alt="English">
+        </div>
+
+        <div class="contracts-section">
+            <h1>Contracts</h1>
+
+            <div class="overview">
+                <div class="overview-item">
+                    <p>Total Contracts</p>
+                    <h2>6</h2>
+                </div>
+                <div class="overview-item">
+                    <p>Contract Value</p>
+                    <h2>$69k</h2>
+                </div>
+                <div class="overview-item">
+                    <p>Pending Contract Offers</p>
+                    <h2>3</h2>
+                </div>
+                <div class="overview-item create-contract">
+                    <i>+</i>
+                    <h2><a href="/CONTRACT_TEMPELATE_LIBRARY/index.html">Create a New Contract</a></h2>
+                </div>
+            </div>
+
+            <div class="contract-status">
+                <div class="status-item status-ongoing">
+                    <p><span class="status-dot"></span> Ongoing</p>
+                    <h2>2</h2>
+                </div>
+                <div class="status-item status-require-action">
+                    <p><span class="status-dot"></
+                        <p><span class="status-dot"></span> Requires Action</p>
+                        <h2>1</h2>
+                    </div>
+                    <div class="status-item status-completed">
+                        <p><span class="status-dot"></span> Completed</p>
+                        <h2>3</h2>
+                    </div>
+                </div>
+    
+                <div class="pending-contracts">
+                    <h3>Pending Contracts</h3>
+                    <div class="contract">
+                        <p>Contract #123 - Client ABC</p>
+                        <a href="#" class="btn">View</a>
+                    </div>
+                    <div class="contract">
+                        <p>Contract #456 - Client XYZ</p>
+                        <a href="#" class="btn">View</a>
+                    </div>
+                    <div class="contract">
+                        <p>Contract #789 - Client DEF</p>
+                        <a href="#" class="btn">View</a>
+                    </div>
+                </div>
+    
+                <div class="tabs">
+                    <div class="tab active">All Contracts</div>
+                    <div class="tab">Active Contracts</div>
+                    <div class="tab">Expired Contracts</div>
+                </div>
+    
+                <table class="contracts-table">
+                    <thead>
+                        <tr>
+                            <th>Contract ID</th>
+                            <th>Client</th>
+                            <th>Value</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Client A</td>
+                            <td>$10k</td>
+                            <td>Ongoing</td>
+                            <td><a href="#" class="btn">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Client B</td>
+                            <td>$15k</td>
+                            <td>Completed</td>
+                            <td><a href="#" class="btn">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>#003</td>
+                            <td>Client C</td>
+                            <td>$20k</td>
+                            <td>Requires Action</td>
+                            <td><a href="#" class="btn">View</a></td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+    </body>
+    </html>
+    
