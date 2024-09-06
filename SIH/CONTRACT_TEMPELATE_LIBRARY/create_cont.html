@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Contract Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Contract Template</h1>
+        <form id="contract-form">
+            <div class="form-group">
+                <label for="contract-type">Choose a Contract Template:</label>
+                <select id="contract-type" name="contract-type">
+                    <option value="">Select a template</option>
+                    <option value="market-specification">Market-Specification Contract</option>
+                    <option value="resource-providing">Resource-Providing Contract</option>
+                    <option value="production-management">Production Management Contract</option>
+                    <option value="land-leasing">Land Leasing Contract</option>
+                    <option value="input-supply">Input-Supply Contract</option>
+                    <option value="outgrower-scheme">Outgrower Scheme Contract</option>
+                    <option value="flexible">Flexible Contract</option>
+                </select>
+            </div>
+            <button type="button" onclick="redirectToForm()">Continue</button>
+        </form>
+    </div>
+
+    <script>
+        function redirectToForm() {
+            var contractType = document.getElementById('contract-type').value;
+            if (contractType) {
+                window.location.href = contractType + '-form.html';
+            } else {
+                alert('Please select a contract template.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Profile Setup</title>
+    <script>
+        function deleteFile(inputId) {
+            document.getElementById(inputId).value = null;
+        }
+    </script>
+</head>
+<body>
+
+<div class="sidebar">
+    <h1>BRANDING</h1>
+    <ul>
+        <li><a href="#"><img src="https://via.placeholder.com/20" alt="Dashboard"> Dashboard</a></li>
+        <li><a href="#"><img src="https://via.placeholder.com/20" alt="Contracts"> Contracts</a></li>
+        <li><a href="#"><img src="https://via.placeholder.com/20" alt="Payments"> Payments</a></li>
+        <li><a href="#"><img src="https://via.placeholder.com/20" alt="Marketplace"> Marketplace</a></li>
+        <li><a href="#"><img src="https://via.placeholder.com/20" alt="Chat"> Chat</a></li>
+        <li><a href="#"><img src="https://via.placeholder.com/20" alt="Settings"> Settings</a></li>
+        <li><a href="#"><img src="https://via.placeholder.com/20" alt="Logout"> Logout</a></li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <div class="top-bar">
+        <input type="search" placeholder="Search...">
+        <div class="right-icons">
+            <img src="https://via.placeholder.com/30" alt="Notifications" class="bi-bell">
+            <img src="https://via.placeholder.com/30" alt="Language Selector" class="select1">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="contract-creation">
+            <h1 class="heading">Profile Setup</h1>
+
+            <form action="submit-profile" method="post" enctype="multipart/form-data">
+                <div class="section profile-info">
+                    <h2>Personal/Company Details</h2>
+                    <div class="profile-picture">
+                        <img src="https://via.placeholder.com/80" alt="Profile Picture">
+                        <p>johndoe@gmail.com</p>
+                    </div>
+                    <div class="details">
+                        <div class="form-group">
+                            <input type="text" placeholder="First Name" value="John" name="first-name">
+                            <input type="text" placeholder="Last Name" value="Doe" name="last-name">
+                            <input type="text" placeholder="Contact" name="contact">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section business-details">
+                    <h2>Farmer Details</h2>
+                    <div class="form-group">
+                        <select name="farming-type">
+                            <option value="Organic">Farming Type: Organic</option>
+                            <option value="Conventional">Farming Type: Conventional</option>
+                        </select>
+                        <input type="text" placeholder="Experience (in years)" name="experience">
+                        <input type="text" placeholder="Farm Size (in acres)" name="farm-size">
+                        <input type="text" placeholder="Crops Produced (up to 4)" name="crops-produced">
+                        <input type="text" placeholder="Annual Yield (Crop 1)" name="annual-yield-crop-1">
+                        <input type="text" placeholder="Annual Yield (Crop 2)" name="annual-yield-crop-2">
+                        <input type="text" placeholder="Annual Yield (Crop 3)" name="annual-yield-crop-3">
+                        <input type="text" placeholder="Annual Yield (Crop 4)" name="annual-yield-crop-4">
+                        <input type="text" placeholder="Farm Address Line 1" name="farm-address-1">
+                        <input type="text" placeholder="Farm Address Line 2" name="farm-address-2">
+                    </div>
+                </div>
+
+                <div class="section document-verification">
+                    <h2>Document Verification</h2>
+                    <div class="documents">
+                        <div class="form-group">
+                            <label for="id-proof">ID Proof (Aadhar/Passport/Whatever)</label>
+                            <input type="file" id="id-proof" name="id-proof">
+                            <button type="button" class="button delete-btn" onclick="deleteFile('id-proof')">Delete</button>
+                            <br><br>
+
+                            <label for="mksan-id">MKSAN Registration Certificate</label>
+                            <input type="file" id="mksan-id" name="mksan-id">
+                            <button type="button" class="button delete-btn" onclick="deleteFile('mksan-id')">Delete</button>
+                            <br><br>
+                            
+                            <label for="trade-license">Trade License</label>
+                            <input type="file" id="trade-license" name="trade-license">
+                            <button type="button" class="button delete-btn" onclick="deleteFile('trade-license')">Delete</button>
+                            <br><br>
+
+                            <label for="business-proof">Proof of Business Operation (Invoices/Bills)</label>
+                            <input type="file" id="business-proof" name="business-proof">
+                            <button type="button" class="button delete-btn" onclick="deleteFile('business-proof')">Delete</button>
+                            <br><br>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <div class="status-item verified">Verified</div>
+                        <div class="status-item pending">Pending</div>
+                        <div class="status-item awaiting">Awaiting Verification</div>
+                        <div class="status-item rejected">Rejected</div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="section submit-section">
+                    <button type="submit" class="button"><a href="/CONTRACT_TEMPELATE_LIBRARY/contracts/index.html">Submit Profile</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
