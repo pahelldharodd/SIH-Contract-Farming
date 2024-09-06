@@ -1,0 +1,193 @@
+body {
+    font-family:"Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eff6ef;
+    color: #333;
+}
+.sidebar {
+    width: 250px;
+    background-color: #eff6ef;
+    position: fixed;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+.sidebar a {
+    color: grey;
+    text-decoration: none;
+    font-size: 12px; 
+}
+
+.sidebar h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .profile {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative; 
+}
+
+.sidebar .profile img {
+    display: flex;
+    position: absolute;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%;
+    
+}
+
+.sidebar .profile p {
+    margin: 5px 0;
+}
+
+.sidebar .profile a {
+    display: block; 
+    text-align: center;
+    font-size: 14px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex; /* Flex layout ensures text and icons align properly */
+    align-items: center; /* Vertically center items */
+}
+
+.sidebar ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar ul li svg.active {
+    background-color: #f0f0f0;
+    color: #00ff26;
+}
+
+.sidebar ul li img {
+    
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.main-content {
+    margin-left: 270px; /* Adjust this to be slightly more than the sidebar width for padding */
+    padding: 20px; /* Padding inside the content area */
+}
+.container {
+    display: flexbox;
+    width: 80%; /* Adjust according to your needs */
+    /* Centers the content horizontally */
+    padding: 20px; /* Adds padding inside the container */
+    margin-left: 270px;
+}
+
+.top-bar {
+    background-color: #eff6ef;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width:98%;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Space between top row and heading */
+}
+
+.d-flex {
+    margin-top: 0;
+}
+
+.top-bar input[type="search"] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+.right-icons {
+    display: flex;
+    align-items: center;
+}
+
+.bi-bell, .Custom, .select1 {
+    margin-left: 20px; /* Space between icons */
+    cursor: pointer;
+}
+
+.select1 select {
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #eff6ef;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.heading {
+    text-align: left;
+    font-size: 25px;
+    margin: 0;
+}
+
+.button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color:#45a049;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        
+.contract-creation , .drafts{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    height: 495px;
+    margin-left: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.template-library, .drafts {
+    margin-top: 30px;
+}
+.template-library .templates, .drafts .draft-items {
+    display: flex;
+    
+    justify-content: space-between;
+}
+.template-item, .draft-item {
+    background-color: #f7f7f7;
+    width: 22%;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.template-item img, .draft-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+.template-item p, .draft-item p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
