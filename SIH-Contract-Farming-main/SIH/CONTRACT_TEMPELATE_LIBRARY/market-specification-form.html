@@ -44,18 +44,18 @@
 <body>
     <div class="container">
         <h1>Market-Specification Contract</h1>
-        <form id="market-specification-form" action="http://127.0.0.1:8000/market-spec-contract/"method="psot"enctype="multipart/form-data">
+        <form id="market-specification-form" action="http://localhost:8000/market-spec-contract/" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="farmer-name">Farmer's Name:</label>
-                <input type="text" id="farmer-name" name="farmer-name" required>
+                <input type="text" id="farmer-name" name="farmer_name">
             </div>
             <div class="form-group">
                 <label for="buyer-name">Buyer's Name:</label>
-                <input type="text" id="buyer-name" name="buyer-name" required>
+                <input type="text" id="buyer-name" name="buyer_name" required>
             </div>
             <div class="form-group">
                 <label for="contract-date">Contract Date:</label>
-                <input type="date" id="contract-date" name="contract-date" required>
+                <input type="date" id="contract-date" name="contract_date" required>
             </div>
             <div class="form-group">
                 <label for="product">Product (Crop/Livestock Description):</label>
@@ -63,7 +63,7 @@
             </div>
             <div class="form-group">
                 <label for="quality">Quality Requirements:</label>
-                <textarea id="quality" name="quality" required></textarea>
+                <textarea id="quality" name="quality_req" required></textarea>
             </div>
             <div class="form-group">
                 <label for="quantity">Quantity:</label>
@@ -71,19 +71,19 @@
             </div>
             <div class="form-group">
                 <label for="delivery-date">Delivery Date:</label>
-                <input type="date" id="delivery-date" name="delivery-date" required>
+                <input type="date" id="delivery-date" name="delivery_date" required>
             </div>
             <div class="form-group">
                 <label for="packaging">Packaging Requirements:</label>
-                <textarea id="packaging" name="packaging" required></textarea>
+                <textarea id="packaging" name="packaging_req" required></textarea>
             </div>
             <div class="form-group">
                 <label for="buyer-responsibilities">Buyer Responsibilities:</label>
-                <textarea id="buyer-responsibilities" name="buyer-responsibilities" required></textarea>
+                <textarea id="buyer-responsibilities" name="buyer_responsibilities" required></textarea>
             </div>
             <div class="form-group">
                 <label for="farmer-responsibilities">Farmer Responsibilities:</label>
-                <textarea id="farmer-responsibilities" name="farmer-responsibilities" required></textarea>
+                <textarea id="farmer-responsibilities" name="farmer_responsibilities" required></textarea>
             </div>
             <div class="form-group">
                 <label for="price">Price:</label>
@@ -91,19 +91,19 @@
             </div>
             <div class="form-group">
                 <label for="payment-schedule">Payment Schedule:</label>
-                <textarea id="payment-schedule" name="payment-schedule" required></textarea>
+                <textarea id="payment-schedule" name="payment_sch" required></textarea>
             </div>
             <div class="form-group">
                 <label for="termination-conditions">Termination Conditions:</label>
-                <textarea id="termination-conditions" name="termination-conditions" required></textarea>
+                <textarea id="termination-conditions" name="termination_conditions" required></textarea>
             </div>
             <div class="form-group">
-                <label for="farmer-signature">Farmer Signature:</label>
-                <input type="file" id="farmer-signature" name="farmer-signature" accept="image/*" required>
+                <label for="farmer-sign">Farmer Signature:</label>
+                <input type="file" id="farmer-sign" name="farmer_sign" accept="image/*" required>
             </div>
             <div class="form-group">
-                <label for="buyer-signature">Buyer Signature:</label>
-                <input type="file" id="buyer-signature" name="buyer-signature" accept="image/*" required>
+                <label for="buyer-sign">Buyer Signature:</label>
+                <input type="file" id="buyer-sign" name="buyer_sign" accept="image/*" required>
             </div>
             
             <button type="submit">Submit Contract</button>
